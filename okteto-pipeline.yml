@@ -2,3 +2,4 @@ deploy:
   - kubectl get all
   - kubectl apply -f k8s/node.yml
   - kubectl apply -f k8s/node-service.yml
+  - kubectl get all
