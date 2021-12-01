@@ -1,18 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app.kubernetes.io/name: load-balancer-example
   name: node-red
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: node-red
+      app.kubernetes.io/name: load-balancer-example
   template:
     metadata:
       labels:
-        run: node-red
+        app.kubernetes.io/name: load-balancer-example
     spec:
       containers:
-      - name: node-red
-        image: axcap/smarthouserepo:smartnora
-        imagePullPolicy: Always
+      - image: axcap/smarthouserepo:smartnora
+        name: node-red
+        ports:
+        - containerPort: 1880
