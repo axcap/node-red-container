@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+    name: node-red
+spec:
+    replicas: 1
+    selector:
+        matchExpressions:
+            - key: app
+              operator: In
+              values:
+                - node-red
+    template:
+        metadata:
+            labels:
+                app: node-red
+        spec:
+            volumes:
+            - name: nodereddata
+              hostPath:
+                path: /data
+            containers:
+            - name: node-red
+              image: axcap/smarthouserepo:nora
+              ports:
+              - containerPort: 1880
+                protocol: TCP
+              volumeMounts:
+                - name: nodereddata
+                  mountPath: /data
