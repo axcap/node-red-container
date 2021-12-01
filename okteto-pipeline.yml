@@ -1,6 +1,3 @@
 deploy:
-  - kubectl get all
-  - kubectl apply -f manifests/node.yml
-  # - kubectl apply -f manifests/node-service.yml
+  - kubectl apply -f manifests/node-red.yml
   - kubectl expose deployment node-red --type=LoadBalancer --name=node-red-service
-  - kubectl get all 
