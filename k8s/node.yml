@@ -18,10 +18,10 @@ spec:
             volumes:
             - name: nodereddata
               hostPath:
-                path: /data
+                path: data
             containers:
             - name: node-red
-              image: axcap/smarthouserepo:nora
+              image: axcap/smarthouserepo:smartnora
               ports:
               - containerPort: 1880
                 protocol: TCP
