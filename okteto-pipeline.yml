@@ -1,5 +1,4 @@
 deploy:
-  - alias k=kubectl
-  - k get all
-  - k apply -f k8s/node.yaml
-  - k apply -f k8s/node-service.yaml
+  - kubectl get all
+  - kubectl apply -f k8s/node.yaml
+  - kubectl apply -f k8s/node-service.yaml
