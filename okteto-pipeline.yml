@@ -1,3 +1,3 @@
 deploy:
   - kubectl apply -f node-red.yml
-  - kubectl expose deployment node-red --type=LoadBalancer --name=node-red-service
+  - kubectl expose -f node-red.yml --type=LoadBalancer --name=node-red-service
