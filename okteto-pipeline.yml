@@ -1,3 +1,4 @@
 deploy:
   - kubectl apply -f node-red.yml
-  - kubectl expose -f node-red.yml --type=LoadBalancer --name=node-red-service
+  - kubectl delete node-red-service
+  - kubectl expose node-red.yml --type=LoadBalancer --name=node-red-service
